@@ -11,7 +11,7 @@ namespace SkyForgeConsole.Core
         private IApplication? m_application;
         private EntryPoint()
         {
-            m_application = null;
+            
         }
 
         public static IEntryPoint GetEntryPoint()
