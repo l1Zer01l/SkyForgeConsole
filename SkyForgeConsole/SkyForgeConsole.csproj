@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>$(MSBuildProjectName)</RootNamespace>
     <Platforms>x64</Platforms>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <BaseOutputPath>..\bin\</BaseOutputPath>
     <Configurations>Debug;Release;UnitTest</Configurations>
   </PropertyGroup>
