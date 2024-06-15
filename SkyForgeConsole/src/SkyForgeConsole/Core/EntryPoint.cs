@@ -2,6 +2,8 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
+using SkyForgeConsole.Services.LogSystem;
+
 namespace SkyForgeConsole.Core
 {
     public class EntryPoint : IEntryPoint
@@ -24,7 +26,7 @@ namespace SkyForgeConsole.Core
 
         public void Destroy()
         {
-            
+            Log.Destroy();
         }
 
         public IApplication? GetApplication()
@@ -34,6 +36,9 @@ namespace SkyForgeConsole.Core
 
         public void Init(IApplication application)
         {
+            //Init LogSystem
+            Log.Init();
+
             m_application = application;
             m_application.Init();
         }

@@ -2,7 +2,9 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
+#if (DEBUG || RELEASE)
 using SkyForgeConsole.Services.LogSystem;
+#endif
 
 namespace SkyForgeConsole.Services
 {
@@ -38,7 +40,8 @@ namespace SkyForgeConsole.Services
 
 #if UNITTEST
             return;
-#endif
+#else
+
             try
             {
                 using (var textWriter = File.AppendText(filePath))
@@ -50,27 +53,29 @@ namespace SkyForgeConsole.Services
             {
                 Log.CoreLogger?.Logging($"Error can't write to file: {filePath}. Exception {ex}", LogLevel.Error);
             }
+#endif
         }
         public static List<string>? ReadFromFile(string filePath)
         {
 
 #if UNITTEST
             return null;
-#endif
+#else
             return ReadFromFile(filePath, 0, 0);
+#endif
         }
         public static List<string>? ReadFromFile(string filePath, int removeStart, int removeEnd)
         {
 
 #if UNITTEST
             return null;
-#endif
-
+#else
             if (!IsHaveFile(filePath))
             {
                 Log.CoreLogger?.Logging($"Error can't read file: {filePath}. ", LogLevel.Error);
                 return null;
             }
+
 
             using (var textReader = File.OpenText(filePath))
             {
@@ -85,7 +90,7 @@ namespace SkyForgeConsole.Services
                 textReader.Dispose();
                 return result;
             }
-
+#endif
         }
     }
 }

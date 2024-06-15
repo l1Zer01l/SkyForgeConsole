@@ -3,8 +3,6 @@
 \**************************************************************************/
 
 using LogConsole.Vendor.Win32;
-using System;
-using System.IO;
 using System.IO.Pipes;
 
 namespace LogConsole.Core
@@ -14,7 +12,7 @@ namespace LogConsole.Core
         public const string PIPE_NAME = "LogServer";
         public const string FileName = "LogConsole.exe";
 
-        private NamedPipeClientStream m_pipeClient;
+        private NamedPipeClientStream? m_pipeClient;
         public void Init()
         {
             m_pipeClient = new NamedPipeClientStream(".", PIPE_NAME, PipeDirection.InOut, PipeOptions.None);
@@ -24,11 +22,14 @@ namespace LogConsole.Core
 
         public void Run()
         {
-            var reader = new StreamReader(m_pipeClient);
+            if (m_pipeClient == null)
+                throw new Exception("Can't called Init ConsoleLog");
+
+            StreamReader? reader = new StreamReader(m_pipeClient);
             WinApiNative.EnableButtonMenu(WinApiNative.BUTTON_CLOSE, WinApiNative.LB_COMMAND | WinApiNative.LB_DISABLE);
             while (m_pipeClient.IsConnected)
             {
-                string[] line = reader.ReadLine()?.Split(LogConsoleColor.SEPARATOR_COLOR);
+                string[]? line = reader.ReadLine()?.Split(LogConsoleColor.SEPARATOR_COLOR);
                 if (line != null)
                 {
                     switch (line[0])

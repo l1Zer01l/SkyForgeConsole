@@ -11,4 +11,8 @@
     <Configurations>Debug;Release;UnitTest</Configurations>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LogConsole\LogConsole.csproj" />
+  </ItemGroup>
+
 </Project>
