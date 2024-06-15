@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyForgeConsole", "SkyForgeConsole\SkyForgeConsole.csproj", "{DDB02195-EAC2-4A76-9407-D70F1C2344DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyForgeConsole", "SkyForgeConsole\SkyForgeConsole.csproj", "{DDB02195-EAC2-4A76-9407-D70F1C2344DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox", "SandBox\SandBox.csproj", "{B873456D-2B23-4A6A-AECE-69A3CD49B9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyForgeConsoleTest", "SkyForgeConsoleTest\SkyForgeConsoleTest.csproj", "{ED8A0F34-4F53-40E9-A925-2F20CE789862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyForgeConsoleTest", "SkyForgeConsoleTest\SkyForgeConsoleTest.csproj", "{ED8A0F34-4F53-40E9-A925-2F20CE789862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogConsole", "LogConsole\LogConsole.csproj", "{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,12 @@ Global
 		{ED8A0F34-4F53-40E9-A925-2F20CE789862}.Release|x64.ActiveCfg = Release|x64
 		{ED8A0F34-4F53-40E9-A925-2F20CE789862}.UnitTest|x64.ActiveCfg = UnitTest|x64
 		{ED8A0F34-4F53-40E9-A925-2F20CE789862}.UnitTest|x64.Build.0 = UnitTest|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.Debug|x64.ActiveCfg = Debug|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.Debug|x64.Build.0 = Debug|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.Release|x64.ActiveCfg = Release|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.Release|x64.Build.0 = Release|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.UnitTest|x64.ActiveCfg = Debug|x64
+		{A741EBC9-E3DE-4C9E-B9E0-D19BC39CC75D}.UnitTest|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,10 +42,26 @@ namespace SkyForgeConsoleTest.Core
             fakeGame.Exit();
             Assert.Throws<MethodAccessException>(fakeGame.Run, "don't called Init or Application disable");
         }
+
+        [Test]
+        public void TestCalledOnInit()
+        {
+            var fakeGame = new FakeGame();
+            fakeGame.Init();
+            fakeGame.CheckCalledOnInit(1);
+        }
     }
 
     internal class FakeGame : Application
     {
-
+        private int m_countCalled = 0;
+        internal void CheckCalledOnInit(int countCalled)
+        {
+            Assert.IsTrue(m_countCalled == countCalled);
+        }
+        protected override void OnInit()
+        {
+            m_countCalled++;
+        }
     }
 }
