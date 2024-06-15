@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LogConsole\LogConsole.csproj" />
     <ProjectReference Include="..\SkyForgeConsole\SkyForgeConsole.csproj" />
   </ItemGroup>
 

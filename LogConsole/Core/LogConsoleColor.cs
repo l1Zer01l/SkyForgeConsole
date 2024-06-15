@@ -8,12 +8,12 @@ namespace LogConsole.Core
     {
         public const char SEPARATOR_COLOR = '^';
 
-        internal const string White = "White";
-        internal const string Red = "Red";
-        internal const string Blue = "Blue";
-        internal const string Green = "Green";
-        internal const string Yellow = "Yellow";
-        internal const string DarkRed = "DarkRed";
-        internal const string DarkYellow = "DarkYellow";
+        public const string White = "White";
+        public const string Red = "Red";
+        public const string Blue = "Blue";
+        public const string Green = "Green";
+        public const string Yellow = "Yellow";
+        public const string DarkRed = "DarkRed";
+        public const string DarkYellow = "DarkYellow";
     }
 }
