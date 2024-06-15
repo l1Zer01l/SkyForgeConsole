@@ -6,15 +6,15 @@ using SkyForgeConsole.Core;
 
 namespace SandBox
 {
-    internal class Program
+    internal class Game : Application
     {
-        private static void Main()
+        protected override void OnInit()
         {
-            IEntryPoint entryPoint = EntryPoint.GetEntryPoint();
-            Game game = new Game();
-            entryPoint.Init(game);
-            game.Run();
-            entryPoint.Destroy();
+            
+        }
+        protected override void OnDestroy()
+        {
+            
         }
     }
 }
