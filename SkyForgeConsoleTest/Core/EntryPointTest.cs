@@ -25,7 +25,7 @@ namespace SkyForgeConsoleTest.Core
 
         internal class FakeApplication : IFakeApplication
         {
-            public bool isRunning { get; }
+            public bool IsRunning { get; }
 
             private int m_countCalledInit = 0;
 

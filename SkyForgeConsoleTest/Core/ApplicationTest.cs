@@ -14,7 +14,7 @@ namespace SkyForgeConsoleTest.Core
         {
             var fakeGame = new FakeGame();
             fakeGame.Init();
-            Assert.IsTrue(fakeGame.isRunning);
+            Assert.IsTrue(fakeGame.IsRunning);
         }
 
         [Test]
@@ -22,9 +22,9 @@ namespace SkyForgeConsoleTest.Core
         {
             var fakeGame = new FakeGame();
             fakeGame.Init();
-            Assert.IsTrue(fakeGame.isRunning);
+            Assert.IsTrue(fakeGame.IsRunning);
             fakeGame.Exit();
-            Assert.IsFalse(fakeGame.isRunning);
+            Assert.IsFalse(fakeGame.IsRunning);
         }
 
         [Test]
