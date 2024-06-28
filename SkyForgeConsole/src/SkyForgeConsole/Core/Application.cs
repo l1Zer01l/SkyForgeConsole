@@ -2,7 +2,10 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
+using SkyForgeConsole.Events;
+using SkyForgeConsole.Services.Input;
 using SkyForgeConsole.Services.LogSystem;
+using SkyForgeConsole.src.Vendor.Win32.Input;
 
 namespace SkyForgeConsole.Core
 {
@@ -10,10 +13,15 @@ namespace SkyForgeConsole.Core
     {
         public bool IsRunning => m_isRunning;
 
+        private IInputService? m_inputService;
         private bool m_isRunning;
 
         public void Init()
         {
+            //Init Input System
+            m_inputService = InputService.GetInputService<WindowsInput>();
+            m_inputService.eventCalled += OnEvent;
+            m_inputService.Init();
 
             m_isRunning = true;
             Log.CoreLogger?.Logging("Welcome to SkyForgeConsole", LogLevel.Info);
@@ -34,7 +42,7 @@ namespace SkyForgeConsole.Core
 
             while (m_isRunning)
             {
-
+                
             }
 
             Destroy();
@@ -42,8 +50,24 @@ namespace SkyForgeConsole.Core
 
         protected virtual void OnInit() { }
         protected virtual void OnDestroy() { }
+
+        private void OnEvent(Event e)
+        {
+            if (e.IsEventCategory(EventCategory.InputEvent))
+            {
+                if (e is KeyPressedEvent pressedEvent)
+                {
+                    if (pressedEvent.GetKeyCode().Equals(KeyCode.Escape))
+                        Exit();
+                }
+                
+            }
+            
+        }
+
         private void Destroy()
         {
+            m_inputService?.Destroy();
 
             OnDestroy();
         }
