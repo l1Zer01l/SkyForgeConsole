@@ -10,5 +10,9 @@ namespace SkyForgeConsole.Core
         void Init();
         void Run();
         void Exit();
+        void PushLayer(Layer layer);
+        void PushOverlay(Layer overlay);
+        void PopLayer(Layer layer);
+        void PopOverlay(Layer overlay);
     }
 }

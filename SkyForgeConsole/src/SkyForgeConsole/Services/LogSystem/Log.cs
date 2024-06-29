@@ -7,7 +7,7 @@ namespace SkyForgeConsole.Services.LogSystem
     public static class Log
     {
         public static ILogger? CoreLogger => m_coreLogger;
-        public static ILogger? ClienLogger => m_clientLogger;
+        public static ILogger? ClientLogger => m_clientLogger;
 
         private static Logger? m_coreLogger;
         private static Logger? m_clientLogger;

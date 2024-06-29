@@ -13,6 +13,9 @@ namespace SkyForgeConsole.Core
         public bool IsRunning => m_isRunning;
 
         private IInputService? m_inputService;
+
+        private LayerStack? m_layerStack;
+
         private bool m_isRunning;
 
         public void Init()
@@ -22,10 +25,34 @@ namespace SkyForgeConsole.Core
             m_inputService.eventCalled += OnEvent;
             m_inputService.Init();
 
+            m_layerStack = new LayerStack();
+
             m_isRunning = true;
             Log.CoreLogger?.Logging("Welcome to SkyForgeConsole", LogLevel.Info);
+
             OnInit();
         }
+
+        public void PushLayer(Layer layer)
+        {
+            m_layerStack?.PushLayer(layer);
+        }
+
+        public void PushOverlay(Layer overlay)
+        {
+            m_layerStack?.PushOverlay(overlay);
+        }
+
+        public void PopLayer(Layer layer)
+        {
+            m_layerStack?.PopLayer(layer);
+        }
+
+        public void PopOverlay(Layer overlay)
+        {
+            m_layerStack?.PopOverlay(overlay);
+        }
+
         public void Exit()
         {
             m_isRunning = false;
@@ -41,7 +68,16 @@ namespace SkyForgeConsole.Core
 
             while (m_isRunning)
             {
-                
+
+                //Update All Layers
+                if (m_layerStack != null)
+                {
+                    foreach (var layer in m_layerStack.GetLayers())
+                    {
+                        if (layer.IsActive)
+                            layer.OnUpdate();
+                    }
+                }     
             }
 
             Destroy();
@@ -52,21 +88,22 @@ namespace SkyForgeConsole.Core
 
         private void OnEvent(Event e)
         {
+            if (m_layerStack != null)
+            {
+                foreach (var layer in m_layerStack.GetLayersReverse())
+                {
+                    if(layer.IsActive)
+                        layer.OnEvent(e);
+                }
+            }
+
             if (e.IsEventCategory(EventCategory.InputEvent))
             {
                 if (e is KeyPressedEvent pressedEvent)
                 {
                     if (pressedEvent.GetKeyCode().Equals(KeyCode.Escape))
                         Exit();
-
-                    if (pressedEvent.IsPressedKey(KeyCode.W))
-                        Console.WriteLine("Yeeeeeees");
-
-                    if (pressedEvent.IsPressedKey(KeyCode.W))
-                        Console.WriteLine("Noooo");
-                }
-
-                
+                }            
             }
             
         }

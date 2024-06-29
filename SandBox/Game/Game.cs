@@ -10,8 +10,11 @@ namespace SandBox
     {
         protected override void OnInit()
         {
-            
+            var uILayer = new UILayer();
+            PushOverlay(uILayer);
+            PushLayer(new ExampleLayer(uILayer));
         }
+
         protected override void OnDestroy()
         {
             

@@ -9,7 +9,10 @@ namespace SkyForgeConsole.Core
 {
     public abstract class Layer : IDisposable
     {
+        public bool IsActive { get; set; } = true;
+
         protected string m_debugName;
+
         public Layer(in string name = "Layer")
         {
             m_debugName = name;
@@ -19,6 +22,7 @@ namespace SkyForgeConsole.Core
         {
             Log.CoreLogger?.Logging($"Destroy Layer: {m_debugName}", LogLevel.Info);
         }
+
         public override string ToString() => m_debugName;
         public abstract void OnAttach();
         public abstract void OnDetach();
