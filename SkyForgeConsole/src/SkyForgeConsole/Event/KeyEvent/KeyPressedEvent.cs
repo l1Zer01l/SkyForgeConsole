@@ -8,7 +8,11 @@ namespace SkyForgeConsole.Events
 {
     public class KeyPressedEvent : KeyEvent
     {
-        public KeyPressedEvent(KeyCode typeKey) : base(EventType.KeyReleased, typeKey) { }
+        public KeyPressedEvent(KeyCode keyCode) : base(EventType.KeyReleased, keyCode) { }
 
+        public bool IsPressedKey(KeyCode keyCode)
+        {
+            return IsKey(keyCode);
+        }
     }
 }

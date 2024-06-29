@@ -5,7 +5,6 @@
 using SkyForgeConsole.Events;
 using SkyForgeConsole.Services.Input;
 using SkyForgeConsole.Services.LogSystem;
-using SkyForgeConsole.src.Vendor.Win32.Input;
 
 namespace SkyForgeConsole.Core
 {
@@ -19,7 +18,7 @@ namespace SkyForgeConsole.Core
         public void Init()
         {
             //Init Input System
-            m_inputService = InputService.GetInputService<WindowsInput>();
+            m_inputService = InputService.GetInputService();
             m_inputService.eventCalled += OnEvent;
             m_inputService.Init();
 
@@ -59,7 +58,14 @@ namespace SkyForgeConsole.Core
                 {
                     if (pressedEvent.GetKeyCode().Equals(KeyCode.Escape))
                         Exit();
+
+                    if (pressedEvent.IsPressedKey(KeyCode.W))
+                        Console.WriteLine("Yeeeeeees");
+
+                    if (pressedEvent.IsPressedKey(KeyCode.W))
+                        Console.WriteLine("Noooo");
                 }
+
                 
             }
             

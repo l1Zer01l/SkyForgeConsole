@@ -2,17 +2,14 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using SkyForgeConsole.Services.Input;
-
 namespace SkyForgeConsole.Events
 {
-    public class KeyRealesedEvent : KeyEvent
+    public class MouseEvent : Event
     {
-        public KeyRealesedEvent(KeyCode keyCode) : base(EventType.KeyReleased, keyCode) { }
-
-        public bool IsKeyRealesed(KeyCode keyCode)
+        public MouseEvent(EventType eventType, EventCategory eventCategory = EventCategory.None) 
+               : base(eventType, eventCategory | EventCategory.MouseEvent)
         {
-            return IsKey(keyCode);
+
         }
     }
 }

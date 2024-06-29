@@ -6,13 +6,12 @@ using SkyForgeConsole.Math;
 
 namespace SkyForgeConsole.Events
 {
-    internal class MouseButtonEvent : Event
+    internal class MouseButtonEvent : MouseEvent
     {
         private MouseButtonType m_buttonType;
         private Vector2 m_positionPressed;
         public MouseButtonEvent(MouseButtonType buttonPressed, Vector2 positionPressed) : base(EventType.MousePressed,
-                                                                                               EventCategory.InputEvent |
-                                                                                               EventCategory.MouseEvent)
+                                                                                               EventCategory.InputEvent)
         {
             m_buttonType = buttonPressed;
             m_positionPressed = positionPressed;
@@ -22,8 +21,17 @@ namespace SkyForgeConsole.Events
         {
             return m_buttonType;
         }
+        public bool IsMousePressed(MouseButtonType buttonPressed)
+        {
+            if (m_isHandled)
+                return false;
 
-        public Vector2 GetMousePos()
+            m_isHandled = buttonPressed.Equals(m_buttonType);
+
+            return m_isHandled;
+        }
+
+        public Vector2 GetMousePosition()
         {
             return m_positionPressed;
         }

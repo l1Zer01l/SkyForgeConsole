@@ -20,5 +20,14 @@ namespace SkyForgeConsole.Events
         {
             return m_keyCode;
         }
+
+        protected bool IsKey(KeyCode keyCode)
+        {
+            if (m_isHandled)
+                return false;
+
+            m_isHandled = m_keyCode.Equals(keyCode);
+            return m_isHandled;
+        }
     }
 }

@@ -5,6 +5,7 @@
 using SkyForgeConsole.Events;
 using SkyForgeConsole.Math;
 using SkyForgeConsole.Services.LogSystem;
+using SkyForgeConsole.src.Vendor.Win32.Input;
 
 namespace SkyForgeConsole.Services.Input
 {
@@ -26,30 +27,32 @@ namespace SkyForgeConsole.Services.Input
 
         private InputService()
         {
+#if !UNITTEST
             Console.CursorVisible = false;
+#endif
             
             m_IsRealesed = true;
             m_isRunning = true;
         }
 
-        internal static IInputService GetInputService<T>() where T : BaseInput
+        internal static IInputService GetInputService()
         {
             if (m_instance is null)
-            {
-                m_baseInput = BaseInput.GetInputSystem<T>();
                 m_instance = new InputService();
-            }
-
+            
             return m_instance;
         }
 
         public void Init()
         {
+#if !UNITTEST
+            m_baseInput = BaseInput.GetInputSystem<WindowsInput>();
             Thread threadInput = new Thread(new ThreadStart(Run));
             m_baseInput.OnMouseMovedEvnent += OnMouseMoved;
             m_baseInput.OnMouseButtonPressed += OnMouseButton;
             Log.CoreLogger?.Logging("Initialized Input System", LogLevel.Info);
             threadInput.Start();
+#endif
         }
 
         public void Destroy()
