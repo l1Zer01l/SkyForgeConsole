@@ -7,11 +7,7 @@ using SkyForgeConsole.Core;
 
 namespace SkyForgeConsoleTest.Core
 {
-#if UNITTEST
     public class ApplicationTest
-#else
-    internal class ApplicationTest
-#endif
     {
         [Test]
         public void TestInit()

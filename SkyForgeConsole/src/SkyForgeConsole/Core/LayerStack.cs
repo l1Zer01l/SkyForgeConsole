@@ -6,7 +6,11 @@ using SkyForgeConsole.Services.LogSystem;
 
 namespace SkyForgeConsole.Core
 {
+#if UNITTEST
     public class LayerStack
+#else
+    internal class LayerStack
+#endif
     {
         private List<Layer> m_layers;
         private List<Layer> m_overlays;

@@ -37,7 +37,7 @@ namespace SandBox
 
                     if (keyPressedEvent.IsPressedKey(KeyCode.O))
                         IsActive = false;
-                }
+                }              
             }
         }
 

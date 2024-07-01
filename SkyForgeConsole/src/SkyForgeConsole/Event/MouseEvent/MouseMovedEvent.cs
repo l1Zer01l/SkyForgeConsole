@@ -6,7 +6,7 @@ using SkyForgeConsole.Math;
 
 namespace SkyForgeConsole.Events
 {
-    internal class MouseMovedEvent : MouseEvent
+    public class MouseMovedEvent : MouseEvent
     {
         private Vector2 m_mousePos;
         public MouseMovedEvent(Vector2 positon) : base(EventType.MouseMoved)

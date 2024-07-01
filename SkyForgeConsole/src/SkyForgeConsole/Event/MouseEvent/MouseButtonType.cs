@@ -4,7 +4,7 @@
 
 namespace SkyForgeConsole.Events
 {
-    internal enum MouseButtonType
+    public enum MouseButtonType
     {
         None = 0,
         LeftButton,

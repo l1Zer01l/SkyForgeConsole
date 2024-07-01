@@ -23,4 +23,8 @@
     <ProjectReference Include="..\SkyForgeConsole\SkyForgeConsole.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Engine\" />
+  </ItemGroup>
+
 </Project>

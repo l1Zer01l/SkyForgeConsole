@@ -48,6 +48,26 @@ namespace SkyForgeConsoleTest.Core
             {
 
             }
+
+            public void PushLayer(Layer layer)
+            {
+                throw new NotImplementedException();
+            }
+
+            public void PushOverlay(Layer overlay)
+            {
+                throw new NotImplementedException();
+            }
+
+            public void PopLayer(Layer layer)
+            {
+                throw new NotImplementedException();
+            }
+
+            public void PopOverlay(Layer overlay)
+            {
+                throw new NotImplementedException();
+            }
         }
 
     }
