@@ -68,7 +68,6 @@ namespace SkyForgeConsole.Core
 
             while (m_isRunning)
             {
-
                 //Update All Layers
                 if (m_layerStack != null)
                 {
@@ -105,7 +104,6 @@ namespace SkyForgeConsole.Core
                         Exit();
                 }            
             }
-            
         }
 
         private void Destroy()

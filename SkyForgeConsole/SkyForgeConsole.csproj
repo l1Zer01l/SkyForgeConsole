@@ -15,8 +15,4 @@
     <ProjectReference Include="..\LogConsole\LogConsole.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\SkyForgeConsole\Engine\" />
-  </ItemGroup>
-
 </Project>
