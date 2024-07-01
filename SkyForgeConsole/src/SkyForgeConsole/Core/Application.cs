@@ -8,7 +8,7 @@ using SkyForgeConsole.Services.LogSystem;
 
 namespace SkyForgeConsole.Core
 {
-    public abstract class Application : IApplication
+    public abstract class Application : IApplication, IDisposable
     {
         public bool IsRunning => m_isRunning;
 
@@ -109,8 +109,13 @@ namespace SkyForgeConsole.Core
         private void Destroy()
         {
             m_inputService?.Destroy();
-
+            m_layerStack.Clear();
             OnDestroy();
+        }
+
+        public void Dispose()
+        {
+            Destroy();
         }
     }
 }

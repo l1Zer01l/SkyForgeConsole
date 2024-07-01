@@ -86,5 +86,12 @@ namespace SkyForgeConsole.Core
         {
             return m_layers.Concat(m_overlays).Reverse().ToArray();
         }
+
+        public void Clear()
+        {
+            foreach (var layer in m_layers)
+                layer.OnDetach();
+            m_layers.Clear();
+        }
     }
 }

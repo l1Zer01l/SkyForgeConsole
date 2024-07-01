@@ -16,7 +16,7 @@ namespace SandBox
 
         public void OnDestroy()
         {
-           
+            Log.ClientLogger?.Logging("Player Destroy", LogLevel.Info);
         }
         public void MovePlayer()
         {
